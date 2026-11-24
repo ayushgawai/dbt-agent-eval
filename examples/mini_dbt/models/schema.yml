@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned orders from the raw layer."
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['paid', 'pending', 'refunded', 'cancelled']
+
+  - name: fct_revenue_by_country
+    description: "Paid revenue aggregated by customer country."
+    columns:
+      - name: country
+        tests: [not_null]
+      - name: revenue_cents
+        tests: [not_null]

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dbt-agent-eval"
+version = "0.1.0"
+description = "MCP-based agent evaluation harness for dbt models with sandboxed warehouse access and guardrails"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Ayush Gawai" }]
+dependencies = []
+
+[project.optional-dependencies]
+postgres = ["psycopg>=3.1"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+dbt-agent-eval = "dbt_agent_eval.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

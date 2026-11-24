@@ -1,0 +1,10 @@
+name: mini_dbt
+version: "1.0.0"
+config-version: 2
+profile: mini_dbt
+
+model-paths: ["models"]
+
+# Example only: this harness evaluates model SQL in its own SQLite
+# sandbox and does not shell out to `dbt`. Run real dbt separately
+# against your warehouse if you need full dbt compilation.
